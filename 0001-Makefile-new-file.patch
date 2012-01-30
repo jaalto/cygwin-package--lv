@@ -1,0 +1,97 @@
+From 60aaf4ba9df4fb4b73b5d9cc0260e905936d4b78 Mon Sep 17 00:00:00 2001
+From: Jari Aalto <jari.aalto@cante.net>
+Date: Tue, 11 Mar 2008 17:02:56 +0200
+Subject: [PATCH] Makefile: new file
+
+Signed-off-by: Jari Aalto <jari.aalto@cante.net>
+---
+ Makefile |   77 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 files changed, 77 insertions(+), 0 deletions(-)
+ create mode 100644 Makefile
+
+diff --git a/Makefile b/Makefile
+new file mode 100644
+index 0000000..7947e7c
+--- /dev/null
++++ b/Makefile
+@@ -0,0 +1,77 @@
++#!/usr/bin/make -f
++#
++#	Copyright (C) 2003-2008 Jari Aalto
++#	Copyright (C) YYYY Firstname Lastname
++#
++#	This program is free software; you can redistribute it and/or
++#	modify it under the terms of the GNU General Public License as
++#	published by the Free Software Foundation; either version 2 of the
++#	License, or (at your option) any later version
++#
++#	This program is distributed in the hope that it will be useful, but
++#	WITHOUT ANY WARRANTY; without even the implied warranty of
++#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
++#	General Public License for more details.
++#
++#	Visit <http://www.gnu.org/copyleft/gpl.html>
++
++ifneq (,)
++This makefile requires GNU Make.
++endif
++
++DESTDIR		=
++prefix		= /usr
++exec_prefix	= $(prefix)
++man_prefix	= $(prefix)/share
++
++PACKAGE		= lv
++INSTALL		= /usr/bin/install
++INSTALL_BIN	= $(INSTALL) -m 755
++INSTALL_SUID	= $(INSTALL) -m 4755
++INSTALL_DATA	= $(INSTALL) -m 644
++
++OBJDIR		   = src
++INSTALL_OBJS_BIN   = $OBJDIR/$(PACKAGE)
++INSTALL_OBJS_MAN1  = *.1
++
++BINDIR		= $(DESTDIR)$(exec_prefix)/bin
++SHAREDIR	= $(DESTDIR)$(prefix)/share/$(PACKAGE)
++LIBDIR		= $(DESTDIR)$(prefix)/lib/$(PACKAGE)
++MANDIR		= $(DESTDIR)$(man_prefix)/man
++MANDIR1		= $(MANDIR)/man1
++
++EXE		= $(OBJDIR)/$(PACKAGE)
++
++all: $(EXE)
++
++$(EXE):
++	$(MAKE) -C $(OBJDIR) CC="$(CC)"
++
++clean:
++	$(MAKE) -C $(OBJDIR) clean
++
++distclean:
++	$(MAKE) -C $(OBJDIR) distclean
++
++realclean:
++	$(MAKE) -C $(OBJDIR) realclean
++
++install-man:
++	# install-man
++	$(INSTALL_BIN) -d $(MANDIR1)
++	$(INSTALL_DATA) $(INSTALL_OBJS_MAN1) $(MANDIR1)/lgrep.1
++
++install-bin:
++	# install-bin
++	$(INSTALL_BIN) -d $(MANDIR1) $(BINDIR)
++	$(MAKE) -C $(OBJDIR) \
++		prefix="$(DESTDIR)$(prefix)" \
++		bindir="$(BINDIR)" \
++		mandir="$(MANDIR)" \
++		install
++
++install: all install-bin install-man
++
++.PHONY: clean distclean realclean install install-bin install-man
++
++# End of file
+-- 
+1.5.3.8
+

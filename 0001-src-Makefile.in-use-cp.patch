@@ -1,0 +1,25 @@
+From 94c061358b16cbb75cf7d57dba8febdea8d1787b Mon Sep 17 00:00:00 2001
+From: Jari Aalto <jari.aalto@cante.net>
+Date: Tue, 11 Mar 2008 17:04:37 +0200
+Subject: [PATCH] src/Makefile.in: use cp
+
+---
+ src/Makefile.in |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/src/Makefile.in b/src/Makefile.in
+index f6abaa4..c97e605 100644
+--- a/src/Makefile.in
++++ b/src/Makefile.in
+@@ -68,7 +68,7 @@ install::
+ 	if test -f $(bindir)/lgrep; then \
+ 		/bin/rm -f $(bindir)/lgrep; \
+ 	fi
+-	(cd $(bindir); ln lv lgrep)
++	(cd $(bindir); cp -f lv lgrep)
+ 	if test ! -d $(lvlibdir); then \
+ 		mkdir -p $(lvlibdir); \
+ 	fi
+-- 
+1.5.3.8
+
