@@ -5,4 +5,4 @@ EUC, SJIS, Big5, HZ, Unicode. Program recognizes multi-bytes patterns
 as regular expressions, lv also provides multilingual grep. In
 addition, lv can recognize ANSI escape sequences for text decoration."
 category: Utils
-requires: cygwin
+requires: libncursesw10

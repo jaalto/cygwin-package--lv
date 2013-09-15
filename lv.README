@@ -10,10 +10,10 @@ as regular expressions, lv also provides multilingual grep. In
 addition, lv can recognize ANSI escape sequences for text decoration.
 
 Runtime requirements:
-  cygwin
+  libncursesw10
 
 Build requirements:
-  cygwin
+  libcursesw-devel
 
 Canonical homepage:
   http://www.ff.iij4u.or.jp/~nrt/lv
@@ -52,14 +52,18 @@ Build instructions:
 ------------------------------------------
 
 Files included in the binary distribution:
-  See content of *.tar.gz
+  See Cygwin package archive
 
 ------------------------------------------
 
 Port Notes:
 
+----- version 4.51-2 -----
+- Cygwing packaging 2013-09-15 Jari Aalto
+- Link with libncursesw10
+
 ----- version 4.51-1 -----
 - Initial release 2008-03-11 Jari Aalto
 
-Cygwin port maintained by: Jari Aalto <jari.aalto@cante.net>
-Copyright (C) 2008 Jari Aalto; Licensed under GPL v2 or later
+Cygwin port maintained by: user <jari.aalto@cante.net>
+Copyright (C) 2008-2013 Jari Aalto; Licensed under GPL v2 or later

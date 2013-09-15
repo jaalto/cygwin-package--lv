@@ -1,6 +1,5 @@
 To: cygwin-announce@cygwin.com
-Subject: Updated: package N.N
-Subject: New package: lv 4.51-1 -- Multilingual less-like viewer
+Subject: Updated: lv 4.51-2 -- Multilingual less-like viewer
 
 PACKAGE DESCRIPTION
 ===================
@@ -17,6 +16,7 @@ addition, lv can recognize ANSI escape sequences for text decoration
 CHANGES SINCE LAST RELEASE
 ==========================
 
+Link with libncursesw10
 See .inst/usr/share/doc/lv-*/relnote.html
 
 INSTALL OR UPGRADE NOTES
